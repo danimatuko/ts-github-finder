@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 
 export interface Iusers {
-  users: [];
+  users: any[];
   error: string | undefined | null;
   isLoading: boolean;
 }
@@ -17,7 +17,9 @@ const initialState: Iusers = {
 };
 
 export const getUsers = createAsyncThunk('users/getUsers', () => {
-  return fetch('https://api.github.com/users').then(res => {
+  // prettier-ignore
+  return fetch('https://api.github.com/users')
+  .then(res => {
     if (res.ok) return res.json();
     throw new Error('Something went wrong');
   });
