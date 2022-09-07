@@ -10,7 +10,7 @@ const Card = (props: Icard) => {
         className='rounded-full mb-3 w-20'
       />
       <div className='name font-bold mb-3 text-slate-600'>{props.name}</div>
-      <Link className='bg-slate-800 text-white py-2 px-7 mb-3 ' to={`/`}>
+      <Link className='bg-slate-800 text-white py-2 px-7 mb-3 ' to={`/${props.id}`}>
         More Info
       </Link>
     </div>
