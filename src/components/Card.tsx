@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Icard } from '../interfaces/Card';
 
 const Card = (props: Icard) => {
@@ -9,9 +10,9 @@ const Card = (props: Icard) => {
         className='rounded-full mb-3 w-20'
       />
       <div className='name font-bold mb-3 text-slate-600'>{props.name}</div>
-      <button className='bg-slate-800 text-white py-2 px-7 mb-3 '>
+      <Link className='bg-slate-800 text-white py-2 px-7 mb-3 ' to={`/`}>
         More Info
-      </button>
+      </Link>
     </div>
   );
 };
