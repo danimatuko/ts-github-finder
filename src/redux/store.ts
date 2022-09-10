@@ -4,7 +4,7 @@ import userDetailsReducer from './features/userDetailsSlice';
 
 export const store = configureStore({
   reducer: {
-    user: userReducer,
+    users: userReducer,
     userDetails: userDetailsReducer,
   },
 });

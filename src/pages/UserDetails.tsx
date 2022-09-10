@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { getUserDetails } from '../redux/features/userDetailsSlice';
+import {
+  getUserDetails,
+  getUserRepos,
+} from '../redux/features/userDetailsSlice';
 import { AppDispatch, RootState } from '../redux/store';
 import { FaCodepen, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa';
 
@@ -10,17 +13,18 @@ const UserDetails = () => {
   const dispatch = useDispatch<AppDispatch>();
   const user = useSelector((state: RootState) => state.userDetails.user);
 
-  console.log(user);
-
   useEffect(() => {
     dispatch(getUserDetails(username));
+    dispatch(getUserRepos(username));
   }, [username]);
 
   return (
     <div>
       <div className='flex justify-between'>
         <div className='1/4 mr-16'>
-          <Link to='/' className='font-bold'>
+          <Link
+            to='/'
+            className='font-bold'>
             BACK TO SEARCH
           </Link>
           <img
