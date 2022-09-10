@@ -21,7 +21,8 @@ const Home = () => {
       <div className='grid grid-cols-4 gap-4'>
         {users &&
           users.map(user => (
-            <Card key={user.id} id={user.id} name={user.name} imageUrl={user.avatar_url} />
+            <Card key={user.id} id={user.id} name={user.login
+            } imageUrl={user.avatar_url} />
           ))}
       </div>
     </>

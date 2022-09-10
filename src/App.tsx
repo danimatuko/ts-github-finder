@@ -6,10 +6,10 @@ import UserDetails from './pages/UserDetails';
 function App() {
   return (
     <div className='App'>
-      <main className='container mx-auto my-5'>
+      <main className='container mx-auto px-48 my-5'>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/:id' element={<UserDetails />} />
+          <Route path='/:username' element={<UserDetails />} />
         </Routes>
       </main>
     </div>
