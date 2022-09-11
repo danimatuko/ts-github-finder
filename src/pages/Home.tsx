@@ -8,7 +8,7 @@ import { AppDispatch, RootState } from '../redux/store';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const users = useSelector((state: RootState) => state.users.users);
+  const users = useSelector((state: RootState) => state.users.data);
 
   useEffect(() => {
     dispatch(getUsers());

@@ -5,13 +5,13 @@ import {
 } from '@reduxjs/toolkit';
 
 export interface Iusers {
-  users: any[];
+  data: any[];
   error: string | undefined | null;
   isLoading: boolean;
 }
 
 const initialState: Iusers = {
-  users: [],
+  data: [],
   error: null,
   isLoading: false,
 };
@@ -35,7 +35,7 @@ export const usersSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getUsers.fulfilled, (state, action) => {
-        state.users = action.payload;
+        state.data = action.payload;
         state.isLoading = false;
       })
       .addCase(getUsers.rejected, (state, action) => {

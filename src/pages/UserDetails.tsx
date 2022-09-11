@@ -1,21 +1,22 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import {
-  getUserDetails,
-  getUserRepos,
-} from '../redux/features/userDetailsSlice';
+import { getUserDetails } from '../redux/features/userDetailsSlice';
 import { AppDispatch, RootState } from '../redux/store';
 import { FaCodepen, FaStore, FaUserFriends, FaUsers } from 'react-icons/fa';
+import RepoItem from '../components/RepoItem';
+import { IrepoInfo } from '../interfaces/RepoItem';
+import { getRepos } from '../redux/features/repoSlice';
 
 const UserDetails = () => {
   const { username } = useParams();
   const dispatch = useDispatch<AppDispatch>();
-  const user = useSelector((state: RootState) => state.userDetails.user);
+  const user = useSelector((state: RootState) => state.userDetails.data);
+  const repos = useSelector((state: RootState) => state.repos.data);
 
   useEffect(() => {
     dispatch(getUserDetails(username));
-    dispatch(getUserRepos(username));
+    dispatch(getRepos(username));
   }, [username]);
 
   return (
@@ -116,6 +117,18 @@ const UserDetails = () => {
           </div>
         </div>
       </div>
+      {repos.map((repoItem: IrepoInfo) => (
+        <RepoItem
+          name={repoItem.name}
+          description={repoItem.description}
+          forks={repoItem.forks}
+          html_url={repoItem.html_url}
+          open_issues={repoItem.open_issues}
+          stargazers_count={repoItem.stargazers_count}
+          watchers_count={repoItem.watchers_count}
+          key={repoItem.name}
+        />
+      ))}
     </div>
   );
 };
