@@ -6,3 +6,23 @@ body {
   background-color: #1f2937;
   color: white;
 }
+
+.badge {
+  @apply rounded-full px-3;
+}
+
+.badge-info {
+  @apply bg-blue-400;
+}
+
+.badge-success {
+  @apply bg-green-400;
+}
+
+.badge-error {
+  @apply bg-red-400;
+}
+
+.badge-warning {
+  @apply bg-yellow-400;
+}

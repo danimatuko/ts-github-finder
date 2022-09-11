@@ -10,7 +10,7 @@ export const getRepos = createAsyncThunk(
   'repos/getRepos',
   (username: string | undefined) => {
     // prettier-ignore
-    return fetch(`https://api.github.com/users/${username}/repos?per_page=5`)
+    return fetch(`https://api.github.com/users/${username}/repos?per_page=5&sort=created`)
       .then(res =>
         res
           .json()
