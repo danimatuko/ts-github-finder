@@ -7,8 +7,8 @@ const Navbar = () => {
       <div className='flex container items-center mx-auto px-48 my-3'>
         <Link
           to='/'
-          className='mr-6 uppercase font-semibold'>
-          <FaGithub className='text-2xl inline mr-2 align-bottom' />
+          className='mr-12 text-xl uppercase font-semibold flex items-center'>
+          <FaGithub className='mr-2 text-2xl' />
           github explorer
         </Link>
         <Link

@@ -15,7 +15,7 @@ function App() {
             element={<Home />}
           />
           <Route
-            path='/:about'
+            path='/about'
             element={<h1>About</h1>}
           />
           <Route
