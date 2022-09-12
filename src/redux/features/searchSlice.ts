@@ -1,3 +1,4 @@
+import { Iuser } from './../../interfaces/User';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -6,34 +7,34 @@ const initialState = {
   isLoading: false,
 };
 
-export const getRepos = createAsyncThunk(
-  'repos/getRepos',
-  (username: string | undefined) => {
+export const searchUser = createAsyncThunk(
+  'repos/searchUser',
+  (query: string | undefined) => {
     // prettier-ignore
-    return fetch(`https://api.github.com/users/${username}/repos?per_page=5&sort=created`)
+    return fetch(`https://api.github.com/search/users?q=${query}`)
       .then(res =>
         res
           .json()
-          .then(res => res)
+          .then(res => res.items)
           .catch(error => error)
       );
   }
 );
 
-export const repoSlice = createSlice({
-  name: 'repos',
+export const searchSlice = createSlice({
+  name: 'search',
   initialState,
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(getRepos.pending, (state, action) => {
+      .addCase(searchUser.pending, (state, action) => {
         state.isLoading = true;
       })
-      .addCase(getRepos.fulfilled, (state, action) => {
+      .addCase(searchUser.fulfilled, (state, action) => {
         state.data = action.payload;
         state.isLoading = false;
       })
-      .addCase(getRepos.rejected, (state, action) => {
+      .addCase(searchUser.rejected, (state, action) => {
         state.isLoading = false;
       });
   },
@@ -41,6 +42,6 @@ export const repoSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 
-export const {} = repoSlice.actions;
+export const {} = searchSlice.actions;
 
-export default repoSlice.reducer;
+export default searchSlice.reducer;

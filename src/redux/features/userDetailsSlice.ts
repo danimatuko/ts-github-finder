@@ -1,9 +1,4 @@
-import {
-  createAsyncThunk,
-  createSlice,
-  isAnyOf,
-  isRejectedWithValue,
-} from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { Iuser } from '../../interfaces/User';
 

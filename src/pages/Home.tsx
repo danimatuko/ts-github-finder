@@ -1,27 +1,27 @@
-import { useEffect } from 'react';
+import { FaSpinner } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../components/Card';
 import Search from '../components/Search';
+import { Iuser } from '../interfaces/User';
 import { AppDispatch, RootState } from '../redux/store';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const users = useSelector((state: RootState) => state.users.data);
+  const res = useSelector((state: RootState) => state.search);
 
-  // useEffect(() => {
-  //   dispatch(getUsers());
-  // }, []);
-
+  if (res.isLoading) {
+    return <FaSpinner className='m-auto mt-48 text-8xl' />;
+  }
   return (
     <>
-      <h1 className='text-center text-5xl  font-bold text-pink-600 my-12'>
+      <h1 className='text-center text-5xl font-bold text-pink-600 my-12'>
         GITHUB EXPLORER
       </h1>
 
       <Search />
       <div className='grid grid-cols-4 gap-4'>
-        {users &&
-          users.map(user => (
+        {res.data &&
+          res.data.map((user: Iuser) => (
             <Card
               key={user.id}
               id={user.id}
