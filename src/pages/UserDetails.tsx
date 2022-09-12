@@ -21,8 +21,8 @@ const UserDetails = () => {
 
   return (
     <div>
-      <div className='flex justify-between'>
-        <div className='1/4 mr-16'>
+      <div className='flex flex-col lg:flex-row items-center justify-between'>
+        <div className='1/4 lg:mr-16'>
           <Link
             to='/'
             className='font-bold'>
@@ -47,7 +47,7 @@ const UserDetails = () => {
           <p className='my-5'>{user?.bio}</p>
           <Link
             to='/'
-            className='text-1xl font-bold rounded-lg w-fit px-5 py-3'>
+            className='text-1xl font-bold border rounded-sm hover:bg-pink-500 w-fit px-5 py-3'>
             VISIT GITHUB PROFILE
           </Link>
           <div className='flex justify-evenly mt-6 text-center rounded-lg shadow-md bg-base-100 py-0.5'>
@@ -79,37 +79,37 @@ const UserDetails = () => {
           </div>
         </div>
       </div>
-      <div className='w-full flex justify-between py-5 mb-6 rounded-lg shadow-md bg-base-100 stats'>
-        <div className='stat'>
+      <div className='w-full flex flex-col lg:flex-row justify-between items-center py-5 mb-6 rounded-lg shadow-md bg-base-100 stats'>
+        <div className='stat grid grid-cols-3 items-center py-2 '>
           <div className='stat-figure text-secondary'>
-            <FaUsers className='text-3xl md:text-5xl' />
+            <FaUsers className='text-3xl md:text-5xl m-auto text-left' />
           </div>
           <div className='pr-5 stat-title'>Followers</div>
           <div className='pr-5 text-3xl stat-value md:text-4xl'>
             {user?.followers}
           </div>
         </div>
-        <div className='stat'>
+        <div className='stat grid grid-cols-3 items-center py-2 '>
           <div className='stat-figure text-secondary'>
-            <FaUserFriends className='text-3xl md:text-5xl' />
+            <FaUserFriends className='text-3xl md:text-5xl m-auto text-left' />
           </div>
           <div className='pr-5 stat-title'>Followings</div>
           <div className='pr-5 text-3xl stat-value md:text-4xl'>
             {user?.following}
           </div>
         </div>
-        <div className='stat'>
+        <div className='stat grid grid-cols-3 items-center py-2 '>
           <div className='stat-figure text-secondary'>
-            <FaCodepen className='text-3xl md:text-5xl' />
+            <FaCodepen className='text-3xl md:text-5xl m-auto text-left' />
           </div>
           <div className='pr-5 stat-title'>Public Repos</div>
-          <div className='pr-5 text-3xl stat-value md:text-4xl'>
+          <div className='pr-5 text-3xl stat-value md:text-4xl '>
             {user?.public_repos}
           </div>
         </div>
-        <div className='stat'>
+        <div className='stat grid grid-cols-3 items-center py-2 '>
           <div className='stat-figure text-secondary'>
-            <FaStore className='text-3xl md:text-5xl' />
+            <FaStore className='text-3xl md:text-5xl m-auto text-left' />
           </div>
           <div className='pr-5 stat-title'>Public Gists</div>
           <div className='pr-5 text-3xl stat-value md:text-4xl'>

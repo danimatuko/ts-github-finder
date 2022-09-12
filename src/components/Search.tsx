@@ -16,15 +16,15 @@ const Search = () => {
   };
 
   return (
-    <div className='flex justify-center items-center h-10 mb-20'>
+    <div className=' flex justify-center items-center h-10 mb-20 text-xl lg:text-base'>
       <input
         type='text'
-        className='w-1/2 h-full px-4 outline-none bg-slate-200 text-black rounded-l-md'
+        className='w-9/12 lg:w-1/2 h-full px-4 outline-none bg-slate-200 text-black rounded-l-md'
         value={query}
         onChange={e => setQuery(e.target.value)}
       />
       <button
-        className='h-100 px-8 bg-pink-500 min-h-full rounded-r-md  hover:bg-pink-700'
+        className='h-100 px-4 lg:px-8 bg-pink-600 min-h-full rounded-r-md hover:bg-pink-700'
         onClick={() => handleSearch()}>
         <FaSearch />
       </button>

@@ -8,7 +8,7 @@ function App() {
   return (
     <div className='App'>
       <Navbar />
-      <main className='container mx-auto px-48 my-5'>
+      <main className='container w-11/12 md:w-9/12 mx-auto my-5'>
         <Routes>
           <Route
             path='/'

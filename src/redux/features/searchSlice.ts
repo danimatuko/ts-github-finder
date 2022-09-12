@@ -11,7 +11,7 @@ export const searchUser = createAsyncThunk(
   'repos/searchUser',
   (query: string | undefined) => {
     // prettier-ignore
-    return fetch(`https://api.github.com/search/users?q=${query}`)
+    return fetch(`https://api.github.com/search/users?q=${query}&per_page=20`)
       .then(res =>
         res
           .json()

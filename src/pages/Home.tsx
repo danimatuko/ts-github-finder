@@ -1,3 +1,4 @@
+
 import { FaSpinner } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../components/Card';
@@ -14,12 +15,12 @@ const Home = () => {
   }
   return (
     <>
-      <h1 className='text-center text-5xl font-bold text-pink-600 my-12'>
+      <h1 className='text-center text-3xl lg:text-5xl font-bold text-pink-600 my-12'>
         GITHUB EXPLORER
       </h1>
 
       <Search />
-      <div className='grid grid-cols-4 gap-4'>
+      <div className='grid items-center md:grid-cols-3 lg:grid-cols-4 gap-4'>
         {res.data &&
           res.data.map((user: Iuser) => (
             <Card

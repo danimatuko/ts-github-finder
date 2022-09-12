@@ -3,7 +3,7 @@ import { Icard } from '../interfaces/Card';
 
 const Card = (props: Icard) => {
   return (
-    <div className='flex flex-col items-center mw-96 border rounded p-4 shadow shadow-gray-700 pb-10'>
+    <div className='flex flex-col items-center border border-slate-700 rounded-sm shadow shadow-gray-700 py-3'>
       <img
         src={props.imageUrl}
         alt='profile'
@@ -11,7 +11,7 @@ const Card = (props: Icard) => {
       />
       <div className='name font-bold mb-3 text-slate-600'>{props.name}</div>
       <Link
-        className='bg-pink-700 font-bold py-2 px-7 mb-3 '
+        className='rounded-sm bg-pink-600 hover:bg-pink-700 py-1 px-7 mb-3 ease-in-out transition-all'
         to={`/${props.name}`}>
         More Info
       </Link>
